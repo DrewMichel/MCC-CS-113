@@ -1,5 +1,5 @@
 package edu.miracosta.cs113.hw1.assistant.test;
-
+/*
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -21,3 +21,4 @@ public class AssistantJackTester {
     }
 
 }
+*/

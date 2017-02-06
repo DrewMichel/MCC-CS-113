@@ -1,0 +1,1 @@
+even though y1 multiplies by larger numbers initially y2 grows bigger as runtime increase very crazy much wow
