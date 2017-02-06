@@ -80,6 +80,9 @@ public class Homework2Project1
         }
     }
 
+    /**
+     * Prints a menu that prompts user to enter a diet option
+     */
     public static void printOptions()
     {
         System.out.println("Enter 1 to add a Meat, Egg, or Nut");
@@ -93,6 +96,11 @@ public class Homework2Project1
         System.out.println("Enter any other character to exit");
     }
 
+    /**
+     *
+     * @param listOfFood ArrayList of Food that is iterated over
+     *        to calculate nutritional values
+     */
     public static void displayNutritionalValues(ArrayList<Food> listOfFood)
     {
         double totalCalories = 0, totalCarbs = 0, totalFats = 0, totalProteins = 0;
