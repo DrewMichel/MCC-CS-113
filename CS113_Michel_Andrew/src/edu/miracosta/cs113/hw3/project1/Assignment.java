@@ -7,8 +7,6 @@ public class Assignment implements Comparable<Assignment>
 {
     private int yearDue, monthDue, dayDue;
 
-    private int yearAssigned, monthAssigned, dayAssigned;
-
     private String className, assignmentName;
 
     public Assignment()
@@ -17,26 +15,28 @@ public class Assignment implements Comparable<Assignment>
         this.monthDue = 0;
         this.dayDue = 0;
 
-        this.yearAssigned = 0;
-        this.monthAssigned = 0;
-        this.dayAssigned = 0;
-
         this.className = "CS130";
         this.assignmentName = "project0";
     }
 
-    public Assignment(String className, String assignmentName, int yearAssigned, int monthAssigned, int dayAssigned, int yearDue, int monthDue, int dayDue)
+    public Assignment(String className, String assignmentName, int yearDue, int monthDue, int dayDue)
     {
         this.yearDue = yearDue;
         this.monthDue = monthDue;
         this.dayDue = dayDue;
 
-        this.yearAssigned = yearAssigned;
-        this.monthAssigned = monthAssigned;
-        this.dayAssigned = dayAssigned;
-
         this.className = className;
         this.assignmentName = assignmentName;
+    }
+
+    public Assignment(Assignment a)
+    {
+        this.yearDue = a.yearDue;
+        this.monthDue = a.monthDue;
+        this.dayDue = a.dayDue;
+
+        this.className = a.className;
+        this.assignmentName = a.assignmentName;
     }
 
     public int getYearDue()
@@ -84,42 +84,13 @@ public class Assignment implements Comparable<Assignment>
         this.assignmentName = assignmentName;
     }
 
-    public int getYearAssigned()
-    {
-        return yearAssigned;
-    }
-
-    public void setYearAssigned(int yearAssigned)
-    {
-        this.yearAssigned = yearAssigned;
-    }
-
-    public int getMonthAssigned() {
-        return monthAssigned;
-    }
-
-    public void setMonthAssigned(int monthAssigned)
-    {
-        this.monthAssigned = monthAssigned;
-    }
-
-    public int getDayAssigned()
-    {
-        return dayAssigned;
-    }
-
-    public void setDayAssigned(int dayAssigned)
-    {
-        this.dayAssigned = dayAssigned;
-    }
-
     /**
      *
      * @return a String containing the assignmentName, className, and due date values
      */
     public String toString()
     {
-        return String.format("Assignment %s for the class %s is due %d//%d//%d", assignmentName, className, monthDue, dayDue, yearDue);
+        return String.format("Assignment %s for the class %s is due %d/%d/%d", assignmentName, className, monthDue, dayDue, yearDue);
     }
 
     /**
@@ -141,7 +112,7 @@ public class Assignment implements Comparable<Assignment>
 
         Assignment temp = (Assignment) o;
 
-        if(temp.className.equals(this.className) && temp.equals(assignmentName))
+        if(temp.className.equals(this.className) && temp.equals(this.assignmentName))
         {
             return true;
         }
