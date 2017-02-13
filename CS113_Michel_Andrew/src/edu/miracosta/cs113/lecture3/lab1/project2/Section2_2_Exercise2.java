@@ -1,8 +1,17 @@
-package edu.miracosta.cs113.lecture3.lab1;
+package edu.miracosta.cs113.lecture3.lab1.project2;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
 
 /**
- * Created by W7237616 on 2/6/2017.
+ * Created by Andrew Michel on 2/6/2017.
  */
+
+/**
+ * Content moved to Section2_2_Exercise1.java class
+ */
+
+/*
 public class Section2_2_Exercise2
 {
     /**
@@ -15,7 +24,10 @@ public class Section2_2_Exercise2
     public Entry removeEntry(String aName)
     {
 
+
+
         return null;
     }
-    */
+
 }
+*/

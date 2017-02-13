@@ -1,7 +1,7 @@
-package edu.miracosta.cs113.lecture3.lab1;
+package edu.miracosta.cs113.lecture3.lab1.project1;
 
 /**
- * Created by W7237616 on 2/6/2017.
+ * Created by Andrew Michel on 2/6/2017.
  */
 
 import java.util.ArrayList;

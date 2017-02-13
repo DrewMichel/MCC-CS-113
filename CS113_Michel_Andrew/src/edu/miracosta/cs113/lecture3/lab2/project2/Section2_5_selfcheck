@@ -1,0 +1,59 @@
+1. What is the the big-O for the single-linked list get operation?
+
+    O(1)
+
+2. What is the big-O for the set operation?
+
+    O(1)
+
+3. What is the big-O for each add method?
+
+    Add: O(1)
+    Insertion: O(n)
+
+4. Draw a single-linked list of Integer objects containing the integers 5, 10, 7, and 30 and referenced by head.
+    Complete the following fragment, which adds all Integer objects in a list.
+    Your fragment should walk down the list, adding all the integer values to sum.
+    int sum = 0;
+    Node<Integer> nodeRef = head;
+    while (nodeRef != null){
+        int next = nodeRef.data;
+        sum += next;
+        nodeRef = head.next;
+    }
+
+5. For the single-linked list in Figure 2.16, data field head (type Node) references the first node.
+    Explain the effect of each statement in the following fragments.
+
+        a.  head = new Node<String>("Shakira", head.next);
+
+                Inserts a new node where the head was and points the new head to the previous head
+
+        b.  Node<String> nodeRef = head.next;
+
+                Creates a shallow copy node which shares references to the node directly after the head node
+
+        c.  Node<String> nodeRef = head;
+            while(nodeRef.next != null)
+            {
+                nodeRef = nodeRef.next;
+            }
+            nodeRef.next = new Node<String>("Tamika");
+
+                Iterates through the nodes until the null tail is located then inserts a new node
+                after the previously last one
+
+        d.  Node<String> nodeRef = head;
+            while(nodeRef != null && !nodeRef.data.equals("Harry")
+            {
+                nodeRef = nodeRef.next;
+            }
+            if(nodeRef != null)
+            {
+                nodeRef.data = "Sally";
+                nodeRef.next = new Node<String>("Harry", nodeRef.next.next);
+            }
+
+                Iterates through the nodes until a node is located containing the data String "Harry"
+                then changes the String to "Sally" and sets the next node to contain "Harry" and point
+                to a node that it was previously pointing to.
