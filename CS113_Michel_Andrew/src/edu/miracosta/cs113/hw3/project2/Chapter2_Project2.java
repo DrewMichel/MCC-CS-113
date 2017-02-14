@@ -30,8 +30,6 @@ public class Chapter2_Project2<T>
         }
         else
         {
-            iterator = head.getLink();
-
             while(iterator.getLink() != null)
             {
                 iterator = iterator.getLink();
