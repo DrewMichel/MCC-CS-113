@@ -1,0 +1,9 @@
+a.	Include a text file that states the running time for each of the four operations listed.
+
+insertAtEnd: O(n)
+
+insertAtStart: O(1)
+
+removeFromStart: O(1)
+
+removeByName: O(n)

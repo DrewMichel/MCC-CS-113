@@ -1,4 +1,4 @@
-package edu.miracosta.cs113.hw3.projectBAD;
+package edu.miracosta.cs113.hw3.project1;
 
 /**
  * Created by Andrew Michel on 2/13/2017.
@@ -6,6 +6,8 @@ package edu.miracosta.cs113.hw3.projectBAD;
 public class Assignment implements Comparable<Assignment>
 {
     private int yearDue, monthDue, dayDue;
+
+    private int assignmentNumber;
 
     private String className, assignmentName;
 
@@ -15,15 +17,19 @@ public class Assignment implements Comparable<Assignment>
         this.monthDue = 0;
         this.dayDue = 0;
 
+        this.assignmentNumber = 0;
+
         this.className = "CS130";
         this.assignmentName = "project0";
     }
 
-    public Assignment(String className, String assignmentName, int yearDue, int monthDue, int dayDue)
+    public Assignment(String className, String assignmentName, int yearDue, int monthDue, int dayDue, int assignmentNumber)
     {
         this.yearDue = yearDue;
         this.monthDue = monthDue;
         this.dayDue = dayDue;
+
+        this.assignmentNumber = assignmentNumber;
 
         this.className = className;
         this.assignmentName = assignmentName;
@@ -84,13 +90,23 @@ public class Assignment implements Comparable<Assignment>
         this.assignmentName = assignmentName;
     }
 
+    public int getAssignmentNumber()
+    {
+        return assignmentNumber;
+    }
+
+    public void setAssignmentNumber(int assignmentNumber)
+    {
+        this.assignmentNumber = assignmentNumber;
+    }
+
     /**
      *
      * @return a String containing the assignmentName, className, and due date values
      */
     public String toString()
     {
-        return String.format("Assignment %s for the class %s is due %d/%d/%d", assignmentName, className, monthDue, dayDue, yearDue);
+        return String.format("Assignment #%d %s for the class %s is due %d/%d/%d", assignmentNumber,assignmentName, className, monthDue, dayDue, yearDue);
     }
 
     /**
@@ -112,11 +128,10 @@ public class Assignment implements Comparable<Assignment>
 
         Assignment temp = (Assignment) o;
 
-        if(temp.className.equals(this.className) && temp.equals(this.assignmentName))
+        if(temp.className.equals(this.className) && temp.assignmentName.equals(this.assignmentName))
         {
             return true;
         }
-
         return false;
     }
 
@@ -131,25 +146,34 @@ public class Assignment implements Comparable<Assignment>
         // -1 less than parameter
         // 0 equal to parameter
         // 1 greater than parameter
-        if(this.yearDue < o.yearDue)
+
+        if (this.yearDue < o.yearDue)
         {
             return -1;
         }
-        else if(this.yearDue == o.yearDue && this.monthDue < o.monthDue)
+        else if(this.yearDue > o.yearDue)
+        {
+            return 1;
+        }
+        else if(this.monthDue < o.monthDue)
         {
             return -1;
         }
-        else if(this.yearDue == o.yearDue && this.monthDue == o.monthDue && this.dayDue < o.dayDue)
+        else if(this.monthDue > o.monthDue)
+        {
+            return 1;
+        }
+        else if(this.dayDue < o.dayDue)
         {
             return -1;
         }
-        else if(this.yearDue == o.yearDue && this.monthDue == o.monthDue && this.dayDue == o.dayDue)
+        else if(this.dayDue > o.dayDue)
         {
-            return 0;
+            return 1;
         }
         else
         {
-            return 1;
+            return 0;
         }
     }
 }

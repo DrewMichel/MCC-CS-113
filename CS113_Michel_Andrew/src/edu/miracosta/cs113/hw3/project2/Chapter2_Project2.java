@@ -121,7 +121,7 @@ public class Chapter2_Project2<T>
     }
 
     // Inner class start
-    private class Node<U>
+    private static class Node<U>
     {
         private Node<U> link;
         private U data;

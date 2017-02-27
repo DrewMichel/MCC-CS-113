@@ -1,9 +1,9 @@
 a.	Include a text file that states the running time for each of the four operations listed.
 
-addAssignment:
+addAssignment: O(1)
 
-removeAssignment:
+removeAssignment: O(n)
 
-getList:
+getList: O(n^3)
 
-findUpcoming:
+findUpcoming: O(n)
