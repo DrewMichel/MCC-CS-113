@@ -1,7 +1,8 @@
 /*<listing chapter="2" section="8">*/
-package edu.miracosta.cs113.hw4;
+package edu.miracosta.cs113.hw4.project1;
 
 import java.util.AbstractSequentialList;
+import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
@@ -25,9 +26,79 @@ public class KWLinkedList<E> extends AbstractSequentialList<E> {
     // Page 121
     // Implement the KWLinkedList addFirst, addLast, getFirst, and getLast methods
 
+    /**
+     *
+     * @param dataItem is the data inserted into a new node which becomes the head
+     */
+    public void addFirst(E dataItem)
+    {
+        add(0, dataItem);
+    }
+
+    /**
+     *
+     * @param dataItem is the data inserted into a new node which becomes the tail
+     */
+    public void addLast(E dataItem)
+    {
+        add(size, dataItem);
+    }
+
+    /**
+     *
+     * @return the data contained inside the head node
+     */
+    public E getFirst()
+    {
+        if (head != null)
+        {
+            return head.data;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @return the data contained inside the tail node
+     */
+    public E getLast()
+    {
+        if(tail != null)
+        {
+            return tail.data;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 // Insert solution to programming exercise 3, section 8, chapter 2 here
     // Page 121
     // Implement the KWLinkedList listIterator and iterator methods
+
+    /**
+     *
+     * @param index the beginning index position of the ListIterator
+     * @return a KWListIter object with an index set to the parameter
+     */
+    public ListIterator<E> listIterator(int index)
+    {
+        return new KWListIter(index);
+    }
+
+    /**
+     *
+     * @return a KWListIter object with an index set to 0
+     */
+    @Override
+    public Iterator<E> iterator()
+    {
+        return new KWListIter(0);
+    }
 
     /**
      * Add an item at the specified index.
@@ -249,9 +320,81 @@ public class KWLinkedList<E> extends AbstractSequentialList<E> {
         // Page 121
         // implement the KWListIter.remove method
 
+        /**
+         * Removes an object from the KWLinkedList based on the position of the KWListIter's index
+         * @throws IllegalStateException if the lastItemReturned is null
+         */
+        @Override
+        public void remove() throws IllegalStateException
+        {
+            if(lastItemReturned != null)
+            {
+                if(lastItemReturned.next != null)
+                {
+                    lastItemReturned.next.prev = lastItemReturned.prev;
+                }
+                else
+                {
+                    tail = lastItemReturned.prev;
+
+                    if(tail == null)
+                    {
+                        head = null;
+                    }
+                    else
+                    {
+                        tail.next = null;
+                    }
+                }
+
+                if(lastItemReturned.prev != null)
+                {
+                    lastItemReturned.prev.next = lastItemReturned.next;
+                }
+                else
+                {
+                    head = lastItemReturned.next;
+
+                    if(head == null)
+                    {
+                        tail = null;
+                    }
+                    else
+                    {
+                        head.prev = null;
+                    }
+                }
+
+                lastItemReturned = null;
+                size--;
+                index--;
+            }
+            else
+            {
+                throw new IllegalStateException();
+            }
+        }
+
 // Insert solution to programming exercise 2, section 8, chapter 2 here
         // Page 121
         // Implement the KWListIter.set method
+
+        /**
+         *
+         * @param dataItem the data which replaces the data previously stored in the lastItemReturned
+         * @throws IllegalStateException if the lastItemReturned is null
+         */
+        public void set(E dataItem) throws IllegalStateException
+        {
+            if(lastItemReturned != null)
+            {
+                lastItemReturned.data = dataItem;
+            }
+            else
+            {
+                throw new IllegalStateException();
+            }
+        }
 
     } //end class KWListIter
 
@@ -260,26 +403,206 @@ public class KWLinkedList<E> extends AbstractSequentialList<E> {
     // Write the method indexOf as specified in the List interface by adapting the code
     // shown in Example 2.14 to return the index of the first occurrence of an object
 
+    /**
+     *
+     * @param dataItem the data which will be searched for inside the KWLinkedList
+     * @return int value of the position that the first occurrence of the data is found
+     *          at inside the KWLinkedList, else -1
+     */
+    @Override
+    public int indexOf(Object dataItem)
+    {
+        KWListIter iterator = (KWListIter) listIterator(0);
+
+        while(iterator.hasNext())
+        {
+            if(dataItem.equals(iterator.next()))
+            {
+                return iterator.nextIndex();
+            }
+        }
+
+        // if not found
+        return -1;
+    }
+
 // Insert solution to programming exercise 2, section 7, chapter 2 here
     // Page 112
     // Write the method lastIndexOf specified in the List interface by adapting the code
     // shown in Example 2.14 to return the index of the last occurrence of an object
+
+    /**
+     *
+     * @param dataItem the data which will be searched for inside the KWLinkedList
+     * @return int value of the position that the last occurrence of the data is found
+     *          at inside the KWLinkedList, else -1
+     */
+    @Override
+    public int lastIndexOf(Object dataItem)
+    {
+        KWListIter iterator = (KWListIter) listIterator(size);
+
+        while(iterator.hasPrevious())
+        {
+            if(dataItem.equals(iterator.previous()))
+            {
+                return iterator.previousIndex();
+            }
+        }
+
+        // if not found
+        return -1;
+    }
 
 // Insert solution to programming exercise 3, section 7, chapter 2 here
     // Page 112
     // Write a method indexOfMin that returns the index of the minimum item in a List,
     // assuming that each item in the list implements the Comparable interface
 
+    /**
+     *
+     * @return int value of the position of the node that contains the minimum value
+     *          based on the compareTo method, else -1
+     */
+    public int indexOfMin()
+    {
+        KWListIter iterator = (KWListIter) listIterator(0);
+
+        Comparable<E> min = null;
+
+        if(iterator.hasNext())
+        {
+            min = (Comparable<E>) iterator.next();
+        }
+        else
+        {
+            return -1;
+        }
+
+        E next = null;
+
+        while(iterator.hasNext())
+        {
+            next = iterator.next();
+
+            if(min.compareTo(next) > 0)
+            {
+                min = (Comparable<E>) next;
+            }
+        }
+
+        return indexOf(min);
+    }
+
 // Insert solution to programming exercise 1, section 6, chapter 2 here
     // Page 104
     // For the double-linked list shown in Figure 2.20., assume head references the first
     // list node and tail references the last list node.  Write statements to do each of the
     // following.
-    /*
-        a. Insert "Bill" before "Tom"
-        b. Insert "Sue" before "Sam"
-        c. Remove "Bill"
-        d. Remove "Sam"
+    //   a. Insert "Bill" before "Tom"
+    //   b. Insert "Sue" before "Sam"
+    //   c. Remove "Bill"
+    //   d. Remove "Sam"
+
+    /**
+     * Removes all elements within the LinkedList then completes all steps
+     *          in exercise 1, section 6, chapter 2 in the text book
      */
+    public void billy()
+    {
+        this.removeRange(0, size);
+
+        // Initial Nodes
+        Node<E> tom = new Node<E>((E)"Tom");
+        Node<E> dick = new Node<E>((E)"Dick");
+        Node<E> harry = new Node<E>((E)"Harry");
+        Node<E> sam = new Node<E>((E)"Sam");
+
+        // Extra Nodes
+        Node<E> bill = new Node<E>((E)"Bill");
+        Node<E> sue = new Node<E>((E)"Sue");
+
+        // Figure 2.20 initial list
+        this.addFirst((E) sam.data);
+        this.addFirst((E) harry.data);
+        this.addFirst((E) dick.data);
+        this.addFirst((E) tom.data);
+
+        // Insert bill before tom
+        this.addFirst((E)bill.data);
+
+        // Insert sue before sam
+        sue.next = tail;
+        sue.prev = tail.prev;
+        tail.prev.next = sue;
+        tail.prev = sue;
+
+        // Remove bill
+        this.removeFromStart();
+
+        // Remove sam
+        sue.next = sam.next;
+        bill.prev = sue;
+        sam = null;
+    }
+
+
+    /**
+     *
+     * @return removedData the data contained in the node
+     *          removed from the start of the LinkedList
+     */
+    public E removeFromStart()
+    {
+        KWListIter iterator = new KWListIter(0);
+
+        E removedData = null;
+
+        if(iterator.hasNext())
+        {
+            removedData = iterator.next();
+            iterator.remove();
+        }
+
+        return removedData;
+    }
+
+    /**
+     *
+     * @param dataItem the data to be searched for to be removed within the LinkedList
+     * @return removedData the data contained within the removed node(s)
+     */
+    public E removeByName(E dataItem)
+    {
+        KWListIter iterator = new KWListIter(0);;
+
+        E removedData = null;
+        E currentData = null;
+
+        while(iterator.hasNext())
+        {
+            currentData = iterator.next();
+
+            if(currentData.equals(dataItem))
+            {
+                removedData = currentData;
+                iterator.remove();
+            }
+        }
+        return removedData;
+    }
+
+    /**
+     * Displays the toString of all data elements within the LinkedList
+     */
+    public void printData()
+    {
+        KWListIter iterator = new KWListIter(0);
+
+        while(iterator.hasNext())
+        {
+            System.out.println(iterator.next().toString());
+        }
+    }
 }
 /*</listing>*/

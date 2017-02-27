@@ -1,5 +1,3 @@
-package edu.miracosta.cs113.hw3.project1;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
