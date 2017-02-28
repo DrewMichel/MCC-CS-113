@@ -1,6 +1,5 @@
 package edu.miracosta.cs113.hw4.project1;
 
-import java.util.ListIterator;
 import java.util.Scanner;
 
 /**
@@ -32,20 +31,20 @@ public class Driver
 
             if(userInput.equals(INSERT_START))
             {
-                System.out.println("Enter name: ");
+                System.out.print("Enter name: ");
                 inputName = keyboard.nextLine();
 
-                System.out.println("Enter ID: ");
+                System.out.print("Enter ID: ");
                 inputID = keyboard.nextLine();
 
                 studentList.addFirst(new Student(inputName, inputID));
             }
             else if(userInput.equals(INSERT_END))
             {
-                System.out.println("Enter name: ");
+                System.out.print("Enter name: ");
                 inputName = keyboard.nextLine();
 
-                System.out.println("Enter ID: ");
+                System.out.print("Enter ID: ");
                 inputID = keyboard.nextLine();
 
                 studentList.addLast(new Student(inputName, inputID));
@@ -56,7 +55,7 @@ public class Driver
             }
             else if(userInput.equals(REMOVE_NAME))
             {
-                System.out.println("Enter name: ");
+                System.out.print("Enter name: ");
                 inputName = keyboard.nextLine();
 
                 studentList.removeByName(new Student(inputName, ""));

@@ -32,7 +32,25 @@ public class KWLinkedList<E> extends AbstractSequentialList<E> {
      */
     public void addFirst(E dataItem)
     {
-        add(0, dataItem);
+        Node<E> temp = new Node<E>(dataItem);
+
+        if(head == null)
+        {
+            head = temp;
+            head.next = tail;
+
+            tail = temp;
+        }
+        else
+        {
+            head.prev = temp;
+
+            temp.next = head;
+
+            head = temp;
+        }
+
+        size++;
     }
 
     /**
@@ -41,7 +59,27 @@ public class KWLinkedList<E> extends AbstractSequentialList<E> {
      */
     public void addLast(E dataItem)
     {
-        add(size, dataItem);
+        Node<E> temp = new Node<E>(dataItem);
+
+        if(head == null)
+        {
+            addFirst(dataItem);
+        }
+        else if(tail == null)
+        {
+            tail = temp;
+            tail.prev = head;
+        }
+        else
+        {
+            tail.next = temp;
+
+            temp.prev = tail;
+
+            tail = temp;
+        }
+
+        size++;
     }
 
     /**
