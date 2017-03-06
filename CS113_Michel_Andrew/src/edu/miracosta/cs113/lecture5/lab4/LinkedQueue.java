@@ -24,8 +24,8 @@ public class LinkedQueue<E>
     /**
      * Inserts item at the rear of the queue.  Returns true if
      * successful; returns false if the item could not be inserted
-     * @param data
-     * @return
+     * @param data being inserted at the rear node
+     * @return boolea true if successfully added, else false
      */
     public boolean offer(E data)
     {
@@ -36,7 +36,8 @@ public class LinkedQueue<E>
      * Removes the entry at the front of the queue and returns it if
      * the queue is not empty.  If the queue is empty,
      * throws a NoSuchElementException
-     * @return
+     * @return data removed from the front node
+     * @throws NoSuchElementException if the list is empty
      */
     public E remove()
     {
@@ -53,7 +54,7 @@ public class LinkedQueue<E>
     /**
      * Removes the entry at the front of the queue and returns it;
      * returns null if the queue is empty
-     * @return
+     * @return data from the front node
      */
     public E poll()
     {
@@ -64,7 +65,7 @@ public class LinkedQueue<E>
     /**
      * Returns the entry at the front of the queue without
      * removing it; returns null if the queue is empty
-     * @return
+     * @return data from the front node
      */
     public E peek()
     {
@@ -74,7 +75,8 @@ public class LinkedQueue<E>
     /**
      * Returns the entry at the front of the queue without removing it.
      * If the queue is empty, throws a NoSuchElementException
-     * @return
+     * @return data from the front node
+     * @throws NoSuchElementException if the front node is empty
      */
     public E element()
     {
