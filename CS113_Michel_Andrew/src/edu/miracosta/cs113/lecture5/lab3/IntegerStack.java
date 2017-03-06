@@ -16,7 +16,7 @@ public class IntegerStack
     {
         Stack<Integer> stacky = new Stack<Integer>();
         Stack<Integer> stacker = new Stack<Integer>();
-        Queue<Integer> que = new LinkedList<>();
+        Queue<Integer> que = new LinkedList<Integer>();
 
         // Problem 1
         push99(stacky);
