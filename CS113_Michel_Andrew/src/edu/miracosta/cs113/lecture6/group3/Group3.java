@@ -1,4 +1,4 @@
-package edu.miracosta.cs113.lecture6.group1;
+package edu.miracosta.cs113.lecture6.group3;
 
 /**
  * David N. Cole, Zach Pownell, Ross McGuyer, Andrew Michel, Mark Blinder
@@ -34,5 +34,6 @@ public class Group3
         {
             return x;
         }
+
     }
 }
