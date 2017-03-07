@@ -1,0 +1,17 @@
+1. Using 3 printers, given 100 print jobs, with print jobs varying from 1-50 pages per job, simulate processing the jobs
+2. Assume a print request is made every minute, printers can print 10 pages per minute
+3. Indicate which printer each job was printed on
+4. QueueA small jobs, QueueB medium jobs, QueueC large jobs
+5. PrinterA openlane, PrinterB openlane, PrinterC fastlane
+
+1. QueueA small jobs less than 10 pages
+2. QueueB medium jobs less than 20 pages
+3. QueueC large jobs more than 20 pages
+
+/*
+1. if PrinterA is empty, if any pages in small queue, move to PrinterA. else if any pages in medium queue, move to PrinterA.
+2. if PrinterB is empty, if any pages in medium queue, move to PrinterB. else if any pages in large queue, move to PrinterB
+3. if PrinterC is empty, if any pages in medium queue, move to PrinterC. else if any pages in large queue, move to PrinterC
+*/
+
+Print to available printers forget efficiency
