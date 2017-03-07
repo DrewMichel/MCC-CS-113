@@ -3,7 +3,7 @@ package edu.miracosta.cs113.lecture6.group1;
 /**
  * David N. Cole, Zach Pownell, Ross McGuyer, Andrew Michel, Mark Blinder
  */
-public class Group1
+public class Group3
 {
     public static void main(String[] args)
     {
@@ -25,7 +25,6 @@ public class Group1
         {
             x *= powah(x, Math.abs(pow) - 1);
         }
-
 
         if(pow < 0)
         {
