@@ -126,7 +126,8 @@ public class Driver
             }
             catch(InputMismatchException e)
             {
-                System.out.println(e.getMessage());
+                keyboard.nextLine();
+                //System.out.println(e.getMessage());
                 System.out.print(prompt);
 
                 badInput = true;
