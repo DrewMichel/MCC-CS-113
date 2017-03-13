@@ -10,6 +10,8 @@ import java.util.Queue;
 
 /**
  * Created by Andrew Michel on 3/11/2017.
+ *
+ * This class acts as an Office which can house several printers and process printjobs through the printers
  */
 public class Office
 {
@@ -99,6 +101,11 @@ public class Office
         this.currentTime.setTimeInMillis(currentTime.getTimeInMillis());
     }
 
+    /**
+     *
+     * @param quota the number of printjobs that printers in the office must complete
+     * @return true if this office has met or surpassed its quota, else false
+     */
     public boolean hasFinished(int quota)
     {
         if(orderOutput >= quota)
@@ -146,6 +153,10 @@ public class Office
         this.numberOfPrinters = numberOfPrinters;
     }
 
+    /**
+     * Initializes Printer objects in printers ArrayList
+     * @return true if population was successful, else false
+     */
     public boolean populatePrinters()
     {
         boolean populated = false;
@@ -160,6 +171,13 @@ public class Office
         return populated;
     }
 
+    /**
+     *
+     * @param job PrintJob which is added to smallQueue if it has 10 or under pages,
+     *            mediumQueue if it has 20 to 11 pages,
+     *            or largeQueue if it has 21 to 50 pages
+     * @return true if param was added to any queue, else false
+     */
     public boolean addPrintJobToQueue(PrintJob job)
     {
         if(job.getPages().size() > 0 && job.getPages().size() < 11)
@@ -180,6 +198,11 @@ public class Office
         return false;
     }
 
+    /**
+     * Iterates through Printers in printers ArrayList and attempts to pop a PrintJob
+     * from the smallQueue, mediumQueue, or largeQueue, in that order, to an available printer
+     * @return true if a printer received a new PrintJob, else false
+     */
     public boolean processPrintJob()
     {
         ListIterator iterator = printers.listIterator();
@@ -216,6 +239,12 @@ public class Office
         return added;
     }
 
+    /**
+     * Iterates over the Printers in printers ArrayList displays information related to completed PrintJobs
+     * Responsible for updating the Office's time of job completions and quota completion
+     * @param pagesPerMinute the number of pages which can be printed per minute
+     * @return
+     */
     public boolean printPages(int pagesPerMinute)
     {
         long endTime = currentTime.getTimeInMillis();
@@ -279,6 +308,10 @@ public class Office
     }
 
 
+    /**
+     *
+     * @return String containing this office's ID number and the number of printers in this office
+     */
     public String toString()
     {
         return "Office #" + officeID + " has " + numberOfPrinters + " printers";

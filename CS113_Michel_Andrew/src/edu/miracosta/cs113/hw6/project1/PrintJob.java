@@ -7,6 +7,9 @@ import java.util.ListIterator;
 
 /**
  * Created by Andrew Michel on 3/11/2017.
+ *
+ * This class can store pages in an ArrayList, record the time the printjob was created,
+ * the original size of the order, and an order ID which can be to keep track of the job.
  */
 public class PrintJob
 {
@@ -14,8 +17,6 @@ public class PrintJob
     private Calendar orderTime;
     private int orderSize;
     private int orderID;
-
-    // TODO: Populate pages with page objects
 
     public PrintJob()
     {
@@ -57,6 +58,10 @@ public class PrintJob
         this.pages = otherJob.getPagesCopy();
     }
 
+    /**
+     * Initializes the pages ArrayList with Page objects
+     * @return true if pages were added, else false
+     */
     public boolean populatePages()
     {
         boolean added = false;
@@ -72,6 +77,10 @@ public class PrintJob
         return added;
     }
 
+    /**
+     *
+     * @return copy a deep copy of the pages ArrayList instance variable
+     */
     public ArrayList<Page> getPagesCopy()
     {
         ListIterator iterator = pages.listIterator();
@@ -111,6 +120,10 @@ public class PrintJob
         this.orderSize = orderSize;
     }
 
+    /**
+     *
+     * @return String containing the printjob ID, original size, and time created.
+     */
     public String toString()
     {
         return "PrintJob #" + orderID + " with " + orderSize + " pages issued: " + orderTime.getTime();

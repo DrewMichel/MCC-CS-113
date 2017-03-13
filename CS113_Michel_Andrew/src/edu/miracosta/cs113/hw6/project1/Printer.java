@@ -55,6 +55,10 @@ public class Printer
         this.printerID = printerID;
     }
 
+    /**
+     *
+     * @return String containg the printer ID
+     */
     public String toString()
     {
         return "Printer #" + printerID;

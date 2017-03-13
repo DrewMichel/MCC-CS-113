@@ -7,9 +7,13 @@ import java.util.Scanner;
 
 /**
  * Created by Andrew Michel on 3/11/2017.
+ *
+ * This class simulates offices with 1, 2, and 3 printers to test the speed differences and advantages
+ * of having a different number of printers
  */
 public class Driver
 {
+
     public static void main(String[] args)
     {
         final String PROMPT = "Enter the number of print iterations between pauses: ";
@@ -107,6 +111,11 @@ public class Driver
         System.out.println("TIME ELAPSED: " + elapsedTime(startTime.getTimeInMillis(), officeA.getTimeCompleted().getTimeInMillis()) + "\n");
     }
 
+    /**
+     *
+     * @param prompt String containing a message that is displayed
+     * @return input int containing user input which is entered via keyboard
+     */
     public static int getInput(String prompt)
     {
         Scanner keyboard = new Scanner(System.in);
@@ -137,6 +146,13 @@ public class Driver
         return input;
     }
 
+    /**
+     *
+     * @param startPoint milliseconds representing the starting point of a duration
+     * @param endPoint milliseconds representing the ending point of a duration
+     * @return String containing the number of days, hours, minutes, and seconds that has passed
+     *          between the start and end points
+     */
     public static String elapsedTime(long startPoint, long endPoint)
     {
         long difference = endPoint - startPoint;
