@@ -2,6 +2,8 @@ package edu.miracosta.cs113.hw6.project1;
 
 /**
  * Created by Andrew Michel on 3/11/2017.
+ *
+ * This class simulates a printer which can store a current job
  */
 public class Printer
 {
@@ -57,7 +59,7 @@ public class Printer
 
     /**
      *
-     * @return String containg the printer ID
+     * @return String containing the printer ID
      */
     public String toString()
     {
