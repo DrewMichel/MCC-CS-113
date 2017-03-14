@@ -1,0 +1,10 @@
+Do the 3 types of transversals for the following tree.
+1. Preorder:
+        lay -> house -> jack -> rat -> milked -> that
+
+2. Inorder:
+        cow -> house -> jack -> lay -> milked -> rat -> that
+
+3. Postorder:
+        cow -> house -> jack -> milked -> rat -> that -> lay
+
