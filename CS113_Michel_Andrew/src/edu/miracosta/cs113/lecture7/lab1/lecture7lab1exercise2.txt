@@ -1,0 +1,21 @@
+Using the Huffman tree in Figure 6.5,
+a. Write the binary string for the message "scissors cuts paper".
+
+
+Problem 2, only do “scissors” for part a.
+
+001100000011000110011100100100011
+0011 00000 0110 0011 0011 1001 0010 0011
+s    c     i    s    s    o    r    s
+scissors
+
+
+
+b. Decode the following binary string using the tree in Figure 6.5:
+1100010001010001001011101100011111110001101010111101101001
+
+
+110001 0001 010 0010 010 111 0110 0011 111 110001 1010 10111 10110 1001
+w      h    e   r    e   _   i    s    _   w      a    l     d     o
+
+where_is_waldo
