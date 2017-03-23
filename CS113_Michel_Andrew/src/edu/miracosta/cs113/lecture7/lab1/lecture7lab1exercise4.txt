@@ -1,9 +1,9 @@
 For the binary trees in Figures 6.2, 6.3, 6.4, and 6.5, indicate whether each tree
 is full, perfect, complete, or none of the above.
 
-Figure 6.2 is a complete and full tree.
+Figure 6.2 is a complete tree.
 
-Figure 6.3 is a complete and full tree.
+Figure 6.3 is a complete tree.
 
 Figure 6.4 is a full tree.
 
