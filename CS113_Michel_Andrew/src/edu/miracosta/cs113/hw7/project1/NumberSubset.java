@@ -15,8 +15,7 @@ public class NumberSubset
 {
     // Declares variables
     private static ArrayList<ArrayList<Integer>> doubleList = new ArrayList<>();
-    private static ArrayList<Integer> singleList = new ArrayList<>();
-    private static int staticTotal;
+
 
     public static int staticTarget;
 
@@ -25,6 +24,7 @@ public class NumberSubset
     {
         // Declares variables
         Scanner keyboard = new Scanner(System.in);
+        ArrayList<Integer> aList = new ArrayList<>();
         int iteration = 1, input;
         boolean goodInput = true;
         boolean badTarget = true;
@@ -65,7 +65,7 @@ public class NumberSubset
                 // Prompts user to add a subset number and adds it to the list
                 System.out.print("Enter subset number #" + iteration++ + ": ");
                 input = keyboard.nextInt();
-                singleList.add(input);
+                aList.add(input);
 
                 // Keeps loop going
                 goodInput = true;
@@ -79,7 +79,7 @@ public class NumberSubset
         }while(goodInput);
 
         // Calls recursive wrapper method
-        subsetWrapper(singleList, staticTarget);
+        subsetWrapper(aList, staticTarget);
     }// main end
 
     /**
