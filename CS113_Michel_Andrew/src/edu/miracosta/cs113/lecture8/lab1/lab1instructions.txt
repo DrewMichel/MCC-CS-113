@@ -1,0 +1,16 @@
+Insert the following numbers into a minimum heap.
+    10, 14, 3, 6, 12, 13, 7, 4, 1, 2
+
+    Draw 10 different pictures of trees as each value is inserted
+
+    Check lecture 8 for heap procedures
+
+    Use DrawIO
+
+Draw the {FINAL} array of the heap.
+
+position of children relative to parent in array
+2p + 1
+2p + 2
+
+// position of parent relative to child in array

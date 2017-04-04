@@ -1,0 +1,18 @@
+1.  If you were using a Map to store the following lists of items,
+    which data field would you select as the key, and why?
+
+        a. textbook title, author, ISBN (International Standard Book Number), year, publisher
+
+            I would select the ISBN as the key since every ISBN number is unique
+
+        b. player's name, uniform number, team, position
+
+            I would select the uniform number as the key since every uniform number is unique
+
+        c. computer manufacturer, model number, processor, memory, disk size
+
+            I would select the model number as the key since every model number is unique
+
+        d. department, course title, course ID, section number, days, time, room
+
+            I would select the section number as the key since every section number is unique
