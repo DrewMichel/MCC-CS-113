@@ -10,7 +10,8 @@ Insert the following numbers into a minimum heap.
 Draw the {FINAL} array of the heap.
 
 position of children relative to parent in array
-2p + 1
-2p + 2
+Left child: 2p + 1
+Right child: 2p + 2
 
 // position of parent relative to child in array
+Parent: (c - 1)/2

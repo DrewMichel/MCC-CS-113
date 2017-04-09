@@ -1,0 +1,120 @@
+Self-Check 1. Explain the effect of the following method calls.
+
+    // Declares a Set which contains Strings and initializes it as a HashSet
+    Set<String> s = new HashSet<String>();
+
+    // Adds the String "hello" to the HashSet
+    s.add("hello");
+
+    // Adds the String "bye" to the HashSet
+    s.add("bye");
+
+    // Attempts to add all elements in the HashSet into the same HashSet
+    // Does not add any elements since duplicates are not added into the HashSet
+    s.addAll(s);
+
+    // Declares a Set which contains Strings and initializes it as a TreeSet
+    Set<String> t = new TreeSet<String>();
+
+    // Adds the String "123" to the TreeSet
+    t.add("123");
+
+    // Attempts to add all elements in the HashSet to the TreeSet
+    // Adds the String "123" to the HashSet
+    s.addAll(t);
+
+    // In these instances, println is used to display text to the console
+
+    // Prints true since the HashSet contains all elements within the TreeSet
+    System.out.println(s.containsAll(t));
+
+    // Prints false since the TreeSet does not contain all elements within the HashSet
+    System.out.println(t.containsAll(s));
+
+    // Prints false since the HashSet does not contain the String "ace"
+    System.out.println(s.contains("ace"));
+
+    // Prints true since the HashSet does contain the String "123"
+    System.out.println(s.contains("123"));
+
+    // Retains only the elements which reside in the TreeSet within the HashSet
+    s.retainAll(t);
+
+    // Prints true since the HashSet does contain the String "123"
+    System.out.println(s.contains("123"));
+
+    // Retains only the elements which reside in the HashSet within the TreeSet
+    // Does not remove any elements
+    t.retainAll(s);
+
+    // Prints true since the TreeSet does contain the String "123"
+    System.out.println(t.contains("123"));
+
+Programming 1.  Assume you have declared three sets a, b, and c and that
+                sets a and b store objects.  Write statements that use
+                methods from the Set interface to perform the following
+                operations:
+
+        // a UNION b
+        a. c =(a ∪ b)
+
+                c.addAll(a);
+                c.addAll(b);
+
+        // a INTERSECTION b
+        b. c = (a ∩ b)
+
+                c.addAll(a);
+                c.retainAll(b);
+
+        // a DIFFERENCE b
+        c. c = (a - b)
+
+                c.addAll(a);
+                c.removeAll(b);
+
+        // a SUBSET b
+        d. if (a ⊂ b)
+            c = a;
+           else
+            c = b;
+
+                if(b.containsAll(a))
+                {
+                    c.addAll(a);
+                }
+                else
+                {
+                    c.addAll(b);
+                }
+
+Programming 2. Write a toString method for a class that implements the
+               Set interface and displays the set elements in the form
+               shown in Example 7.1.
+
+                    public String toString()
+                    {
+                        StringBuilder elements = new StringBuilder();
+
+                        boolean firstRun = true;
+
+                        for(String nextItem: set)
+                        {
+
+                            if(nextItem != null)
+                            {
+                                if(firstRun == true)
+                                {
+                                    firstRun = false;
+                                    elements.append(nextItem);
+                                }
+                                else
+                                {
+                                    elements.append(", " + nextItem);
+                                }
+                            }
+
+                        }
+
+                        return "[" + elements.toString() + "]";
+                    }
