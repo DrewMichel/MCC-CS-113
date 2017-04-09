@@ -92,6 +92,12 @@ Programming 2. Write a toString method for a class that implements the
                Set interface and displays the set elements in the form
                shown in Example 7.1.
 
+
+                    /**
+                     * Concatenates all String elements within the Set into a
+                     * single String and returns it
+                     * @return a String containing all elements within the Set
+                     */
                     public String toString()
                     {
                         StringBuilder elements = new StringBuilder();
@@ -100,7 +106,6 @@ Programming 2. Write a toString method for a class that implements the
 
                         for(String nextItem: set)
                         {
-
                             if(nextItem != null)
                             {
                                 if(firstRun == true)
@@ -113,7 +118,6 @@ Programming 2. Write a toString method for a class that implements the
                                     elements.append(", " + nextItem);
                                 }
                             }
-
                         }
 
                         return "[" + elements.toString() + "]";
