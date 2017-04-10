@@ -4,14 +4,17 @@ package edu.miracosta.cs113.lecture8.studentcode;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Stack;
 
 /**
  * Class for a binary tree that stores type E objects.
  * @author Koffman and Wolfgang
  **/
-public class BinaryTree<E> implements Serializable {
+public class BinaryTree<E> implements Serializable, Iterable<E> {
+
+    protected Stack<Node<E>> stack = new Stack<>();
 
     /*<listing chapter="6" number="1">*/
     /** Class to encapsulate a tree node. */
@@ -132,13 +135,20 @@ public class BinaryTree<E> implements Serializable {
         return (root == null || (root.left == null && root.right == null));
     }
 
+    /*
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         preOrderTraverse(root, 1, sb);
         return sb.toString();
     }
+    */
 
+    @Override
+    public String toString()
+    {
+        return getData().toString();
+    }
     /**
      * Perform a preorder traversal.
      * @param node The local root
@@ -189,6 +199,114 @@ public class BinaryTree<E> implements Serializable {
 
 // Insert solution to programming exercise 3, section 3, chapter 6 here
 
+// Programming exercise 8, chapter 6, page 357
 
+
+    /**
+     * The Iterator returned by this method is intended to traverse the BinaryTree in an
+     * inorder pattern
+     * @return an object declared as an Iterator and initialized as a BinaryTreeIterator
+     */
+    @Override
+    public Iterator iterator()
+    {
+        return new BinaryTreeIterator();
+    }
+
+
+    /**
+     * Nested class iterator that can traverse a BinaryTree in an inorder pattern
+     */
+    private class BinaryTreeIterator implements Iterator<Node<E>>
+    {
+        private Node<E> currentNode;
+
+        private Node<E> lastItemReturned;
+
+        public BinaryTreeIterator()
+        {
+            currentNode = root;
+
+            if(currentNode != null)
+            {
+                while(currentNode.left != null)
+                {
+                    stack.push(currentNode);
+                    currentNode = currentNode.left;
+
+                }
+            }
+        }
+
+        /**
+         *
+         * @return true if the currentNode is not null, else false
+         */
+        public boolean hasNext()
+        {
+            return currentNode != null;
+        }
+
+        /**
+         * Iterates through the BinaryTree in an inorder pattern
+         * @return lastItemReturned a Node<E>
+         * @throws NoSuchElementException if called while the iterator has no next Node
+         */
+        public Node<E> next()
+        {
+
+            if(hasNext() == false)
+            {
+                throw new NoSuchElementException("Iterator has surpassed endpoint");
+            }
+
+            lastItemReturned = currentNode;
+
+            if (currentNode.right != null)
+            {
+                stack.push(currentNode);
+
+                currentNode = currentNode.right;
+
+                while(currentNode.left != null)
+                {
+                    stack.push(currentNode);
+
+                    currentNode = currentNode.left;
+                }
+            }
+            else
+            {
+                while(stack.empty() == false && currentNode.equals(stack.peek().right))
+                {
+                    currentNode = stack.peek();
+                    stack.pop();
+                }
+
+                if(stack.empty() == true)
+                {
+                    currentNode = null;
+                }
+                else
+                {
+                    currentNode = stack.peek();
+                    stack.pop();
+                }
+
+            }
+
+            return lastItemReturned;
+        }
+
+        /**
+         * Necessary implemented stub method which throws an UnsupportedOperationException
+         * @throws UnsupportedOperationException when called
+         */
+        @Override
+        public void remove()
+        {
+            throw new UnsupportedOperationException();
+        }
+    }
 }
 /*</listing>*/
