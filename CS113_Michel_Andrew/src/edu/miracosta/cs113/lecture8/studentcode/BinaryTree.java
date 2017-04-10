@@ -4,6 +4,8 @@ package edu.miracosta.cs113.lecture8.studentcode;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Class for a binary tree that stores type E objects.
@@ -186,5 +188,7 @@ public class BinaryTree<E> implements Serializable {
 // Insert solution to programming exercise 2, section 3, chapter 6 here
 
 // Insert solution to programming exercise 3, section 3, chapter 6 here
+
+
 }
 /*</listing>*/
