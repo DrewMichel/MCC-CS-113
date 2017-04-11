@@ -1,3 +1,6 @@
+// Zach Pownell
+// Andrew Michel
+
 1.  If you were using a Map to store the following lists of items,
     which data field would you select as the key, and why?
 
@@ -7,7 +10,7 @@
 
         b. player's name, uniform number, team, position
 
-            I would select the uniform number as the key since every uniform number is unique
+            I would select the team as the key since every team is unique
 
         c. computer manufacturer, model number, processor, memory, disk size
 

@@ -3,6 +3,9 @@ package edu.miracosta.cs113.lecture9.partnerlab;
 /**
  * Created by w7237616 on 4/3/2017.
  *
+ * Zach Pownell
+ * Andrew Michel
+ *
  * page 372, project 1
  *
  * Write statements to create a Map object
@@ -22,7 +25,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.io.FileInputStream;
 
-public class ProgramOne
+public class MapReader
 {
     public static void main(String[] args)
     {
@@ -81,7 +84,13 @@ public class ProgramOne
 
     }
 
-    // add javadocs, change return type
+    /**
+     * Populates a Map<String, Integer> with words in a file, if a word already exists as a key,
+     * Integer value associated with that word is incremented by one.
+     * @param map Map<String, Integer> which stores words as keys and
+     *            the number of occurrences as values
+     * @param fileInput the stream which words are read in from and added as keys to the map param
+     */
     public static void buildWordCounts(Map<String, Integer> map, Scanner fileInput)
     {
         Scanner lineReader = null;
@@ -99,9 +108,11 @@ public class ProgramOne
             {
                 currentWord = lineReader.next();
 
+
                 if(map.containsKey(currentWord))
                 {
-                    map.replace(currentWord, map.get(currentWord) + 1);
+                    //map.replace(currentWord, map.get(currentWord) + 1);
+                    map.put(currentWord, map.get(currentWord) + 1);
                 }
                 else
                 {
@@ -111,6 +122,11 @@ public class ProgramOne
         }
     }
 
+    /**
+     *
+     * @param map Map<String, Integer> that is iterated over and has its String
+     *            keys displayed with its associated Integer value
+     */
     public static void displayMap(Map<String, Integer> map)
     {
         int counter = 0;
