@@ -1,0 +1,30 @@
+// Zach Pownell
+// Andrew Michel
+
+2. For the items in the 5-element table of Table 7.3,
+    compute hashCode() % table.length for length of 7 and 13.
+    What would be the position of each word in tables of these
+    sizes using open addressing and linear probing?
+    Answer the same question for chaining.
+
+        // Open Addressing and Linear Probing
+        Name:       HashCode()      hashCode()%7      Position7        hashCode()%13        Position13
+        "Tom"       84274           1                 1                8                    8
+        "Dick"      2129869         0                 0                1                    1
+        "Harry"     69496448        0                 2                8                    9
+        "Sam"       82879           6                 6                4                    4
+        "Pete"      2484038         4                 4                11                   11
+
+
+        // TODO: Chaining
+        Name:       HashCode()      hashCode()%7      Position7        hashCode()%13        Position13
+        "Tom"       84274           1                 1                 8                   8
+        "Dick"      2129869         0                 0                 1                   1
+        "Harry"     69496448        0                 0                 8                   8
+        "Sam"       82879           6                 6                 4                   4
+        "Pete"      2484038         4                 4                 11                  11
+
+3. The following table stores Integer keys with the int values shown.
+    Show one sequence of insertions that would store the keys as shown.
+    Which elements were placed in their current position because of
+    collisions?  Show the table that would be formed by chaining.

@@ -1,4 +1,4 @@
-package edu.miracosta.cs113.lecture9.partnerlab;
+package edu.miracosta.cs113.lecture9.partnerlab1;
 
 /**
  * Created by w7237616 on 4/3/2017.
