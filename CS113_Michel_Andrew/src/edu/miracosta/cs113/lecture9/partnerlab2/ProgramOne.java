@@ -1,7 +1,5 @@
 package edu.miracosta.cs113.lecture9.partnerlab2;
 
-import java.util.HashMap;
-
 /**
  * Created by Andrew Michel on 4/16/2017.
  *
