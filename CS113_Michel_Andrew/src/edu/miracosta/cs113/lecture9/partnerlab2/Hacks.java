@@ -2,6 +2,8 @@ package edu.miracosta.cs113.lecture9.partnerlab2;
 
 /**
  * Created by w7237616 on 4/10/2017.
+ * This class exists to easily find the modulus of selfcheck problems before attempting
+ * to determine how to insert them via linear probing or chaining
  */
 public class Hacks
 {

@@ -16,7 +16,7 @@
         "Pete"      2484038         4                 4                11                   11
 
 
-        // TODO: Chaining
+        // Chaining
         Name:       HashCode()      hashCode()%7      Position7        hashCode()%13        Position13
         "Tom"       84274           1                 1                 8                   8
         "Dick"      2129869         0                 0                 1                   1
@@ -28,3 +28,34 @@
     Show one sequence of insertions that would store the keys as shown.
     Which elements were placed in their current position because of
     collisions?  Show the table that would be formed by chaining.
+
+    original example
+
+    index      key
+    [0]        24
+    [1]        6
+    [2]        20
+    [3]
+    [4]        14
+
+    //Linear Probing insertion
+
+    insert 14%5 at [4]
+    insert 24%5 at [0]
+    insert 6%5  at [1]
+    insert 20%5 at [2]
+
+    element 24 was placed at [0] after colliding at [4] and incrementing by
+    one to 5 then being modded down to [0].
+
+    element 20 was placed at [2] after colliding at [0], incrementing to [1], colliding again,
+    then moving to [2].
+
+    // Chaining table
+
+    index      key
+    [0]        20
+    [1]        6
+    [2]
+    [3]
+    [4]        14  -> 24
