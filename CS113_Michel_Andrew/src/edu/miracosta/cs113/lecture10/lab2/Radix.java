@@ -1,7 +1,7 @@
 package edu.miracosta.cs113.lecture10.lab2;
 
 /**
- * Created by w7237616 on 4/17/2017.
+ * Created by Andrew Michel on 4/17/2017.
  */
 
 import java.util.Queue;

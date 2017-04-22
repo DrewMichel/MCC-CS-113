@@ -1,7 +1,7 @@
 package edu.miracosta.cs113.lecture10.lab1;
 
 /**
- * Created by w7237616 on 4/17/2017.
+ * Created by Andrew Michel on 4/17/2017.
  */
 public class Driver
 {
@@ -25,21 +25,21 @@ public class Driver
      */
     public static void bubbleSort(Integer[] array)
     {
-        boolean exchange = false;
+        boolean exchange = true;
 
         Integer temp;
 
-        for(int i = 0; i < array.length && exchange == false; i++)
+        while(exchange == true)
         {
-            exchange = true;
-            for(int k = 0; k < array.length; k++)
+            exchange = false;
+            for(int k = 0; k < array.length - 1; k++)
             {
-                if(array[i].compareTo(array[k]) < 0)
+                if(array[k].compareTo(array[k + 1]) > 0)
                 {
-                    exchange = false;
+                    exchange = true;
                     temp = array[k];
-                    array[k] = array[i];
-                    array[i] = temp;
+                    array[k] = array[k + 1];
+                    array[k + 1] = temp;
                 }
             }
         }
