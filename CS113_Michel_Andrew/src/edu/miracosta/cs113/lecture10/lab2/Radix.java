@@ -29,6 +29,12 @@ public class Radix
 
     }
 
+    /**
+     *
+     * @param queues Array of Queues that contains Integers which
+     *               is used as sorting buckets
+     * @param array Integer array that has its elements sorted
+     */
     public static void radixSort(Queue<Integer>[] queues, Integer[] array)
     {
         int divider = 1;
@@ -66,6 +72,11 @@ public class Radix
         }
     }
 
+    /**
+     *
+     * @param queues Array of Queues that contains Integers which
+     *               has its queues initialized
+     */
     public static void populateQueues(Queue<Integer>[] queues)
     {
         for(int i = 0; i < queues.length; i++)
@@ -74,6 +85,11 @@ public class Radix
         }
     }
 
+    /**
+     *
+     * @param queues Array of Queues that contains Integers which
+     *               have their elements displayed
+     */
     public static void displayQueues(Queue<Integer>[] queues)
     {
         for(int i = 0; i < queues.length; i++)
@@ -93,6 +109,10 @@ public class Radix
         System.out.println();
     }
 
+    /**
+     *
+     * @param array Integer array that has its elements displayed
+     */
     public static void displayArray(Integer[] array)
     {
         for(int i = 0; i < array.length; i++)
