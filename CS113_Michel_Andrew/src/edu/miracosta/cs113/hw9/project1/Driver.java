@@ -301,7 +301,7 @@ public class Driver
                 numberOfPrints++;
             }
 
-            if(numberOfPrints % 5 == 0)
+            if(numberOfPrints % 5 == 0 && numberOfPrints != 0)
             {
                 System.out.println();
                 numberOfPrints = 0;
