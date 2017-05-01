@@ -1,1 +1,51 @@
 1. Program the rebalanceRight method.
+
+
+/**
+ * Opposite version of rebalanceLeft method at page 487
+ * @param localRoot the root of the AVL tree that is being rebalanced
+ * @return updated root
+ */
+private AVLNode<E> rebalanceRight(AVLNode<E> localRoot)
+{
+    AVLNode<E> rightChild = (AVLNode<E>) localRoot.right;
+
+    if(rightChild.balance < AVLNode.BALANCED)
+    {
+        AVLNode<E> rightLeftChild = (AVLNode<E>) rightChild.left;
+
+        if(rightLeftChild.balance > AVLNode.BALANCED)
+        {
+            rightChild.balance = AVLNode.RIGHT_HEAVY;
+
+            rightLeftChild.balance = AVLNode.BALANCED;
+
+            localRoot.balance = AVLNode.BALANCED;
+        }
+        else if(rightLeftChild.balance > AVLNode.BALANCED)
+        {
+            rightChild.balance = AVLNode.BALANCED;
+
+            rightLeftChild.balance = AVLNode.BALANCED;
+
+            localRoot.balance = AVLNode.LEFT_HEAVY;
+        }
+        else
+        {
+            rightChild.balance = AVLNode.BALANCED;
+
+            localRoot.balance = AVLNode.BALANCED;
+        }
+
+        localRoot.right = rotateRight(rightChild);
+
+    }
+    else
+    {
+        rightChild.balance = AVLNode.BALANCED;
+
+        localRoot.balance = AVLNode.BALANCED;
+    }
+
+    return (AVLNode<E>) rotateLeft(localRoot);
+}
